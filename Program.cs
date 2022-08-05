@@ -28,9 +28,8 @@
             // Console.WriteLine("[" + String.Join(", ", resultList) + "]");
             Methods.FillStringArray();
             Console.Clear();
-            Console.WriteLine("В");
-            Console.WriteLine("Вы ввели следующие строки:");
-            Console.WriteLine("[" + String.Join(", ", Methods.array) + "]");
+            Console.WriteLine("\n\tВы ввели следующие строки:");
+            Console.WriteLine("\n\t[ " + String.Join(" ,  ", Methods.array) + " ]\n");
         }
     }
 }

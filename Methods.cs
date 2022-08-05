@@ -1,41 +1,45 @@
 namespace ControlWork
 {
-    class Methods
+    abstract class Methods
     {
-        public static string[] array = new string[0];
+        protected static string[] array = new string[0];
+        protected static string[] result = new string[0];
 
-        public static void FillStringArray()
+        protected static void FillStringArray()
         {
             Console.Clear();
             Console.Write(
                 "\n\tПожалуйста введите несколько строк для заполнения массива.\n"
-                    + "\tЧтобы остановить процесс нажмите Escape.\n"
+                    + "\tЧтобы остановить процесс введите *ПУСТУЮ* строку.\n\n"
             );
             int i = 0;
             Array.Resize(ref array, 0);
-            ConsoleKeyInfo choise;
-            while (true)
+            do
             {
                 Console.Write($"\tВведите элемнт c индексом No {i}: ");
                 string? str = Console.ReadLine();
+                if (str == String.Empty)
+                    break;
                 if (!String.IsNullOrEmpty(str))
                     AddToArray(ref array, str);
-                Console.Write($"\tПродолжить ввод? ");
-                choise = Console.ReadKey();
-                Console.WriteLine();
-                if (choise.Key == ConsoleKey.Escape)
-                {
-                    break;
-                }
                 i++;
-            }
+            } while (true);
         }
 
-        public static void AddToArray(ref string[] arrayOfStrings, string text)
+        protected static void AddToArray(ref string[] arrayOfStrings, string text)
         {
             int lenght = arrayOfStrings.Length;
             Array.Resize(ref arrayOfStrings, lenght + 1);
             array[arrayOfStrings.Length - 1] = text;
+        }
+
+        protected static void GetResult()
+        {
+            foreach (string key in array)
+            {
+                if (key.Length <= 3)
+                    AddToArray(ref result, key);
+            }
         }
     }
 }
