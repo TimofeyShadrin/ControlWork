@@ -16,20 +16,7 @@
             //             stringArray[i] = ' ';
             // }
 
-            // text = String.Join("", stringArray);
-            // string[] result = text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            // Console.WriteLine("[" + String.Join(", ", result) + "]");
-            // List<string> resultList = new List<string>();
-            // foreach (string word in result)
-            // {
-            //     if (word.Length <= 3)
-            //         resultList.Add(word);
-            // }
-            // Console.WriteLine("[" + String.Join(", ", resultList) + "]");
-            Methods.FillStringArray();
-            Console.Clear();
-            Console.WriteLine("\n\tВы ввели следующие строки:");
-            Console.WriteLine("\n\t[ " + String.Join(" ,  ", Methods.array) + " ]\n");
+            Decisions.Task();
         }
     }
 }

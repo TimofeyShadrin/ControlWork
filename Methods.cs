@@ -30,15 +30,28 @@ namespace ControlWork
         {
             int lenght = arrayOfStrings.Length;
             Array.Resize(ref arrayOfStrings, lenght + 1);
-            array[arrayOfStrings.Length - 1] = text;
+            arrayOfStrings[arrayOfStrings.Length - 1] = text;
         }
 
         protected static void GetResult()
         {
-            foreach (string key in array)
+            for (int i = 0; i < array.Length; i++)
             {
-                if (key.Length <= 3)
-                    AddToArray(ref result, key);
+                if (array[i].Length <= 3)
+                    AddToArray(ref result, array[i]);
+            }
+        }
+
+        protected static void PrintArray(ref string[] currentArray)
+        {
+            if (currentArray.Length > 0)
+                Console.WriteLine("\n\t[" + String.Join(", ", currentArray) + "]\n");
+            else
+            {
+                Console.WriteLine(
+                    "\n\tВы не ввели ни одной строки!"
+                        + "\n\tС пустым массивом невозможно провести требуемой операции!"
+                );
             }
         }
     }
