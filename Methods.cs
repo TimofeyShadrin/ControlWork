@@ -7,16 +7,19 @@ namespace ControlWork
 
         protected static void FillStringArray()
         {
-            Console.Clear();
             Console.Write(
                 "\n\tПожалуйста введите несколько строк для заполнения массива.\n"
-                    + "\tЧтобы остановить процесс введите *ПУСТУЮ* строку.\n\n"
+                    + "\tЧтобы остановить процесс введите"
             );
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(" ПУСТУЮ ");
+            Console.ResetColor();
+            Console.Write("строку.\n\n");
             int i = 0;
             Array.Resize(ref array, 0);
             do
             {
-                Console.Write($"\tВведите элемнт c индексом No {i}: ");
+                Console.Write($"\tВведите элемент c индексом No {i}: ");
                 string? str = Console.ReadLine();
                 if (str == String.Empty)
                     break;
@@ -45,12 +48,12 @@ namespace ControlWork
         protected static void PrintArray(ref string[] currentArray)
         {
             if (currentArray.Length > 0)
-                Console.WriteLine("\n\t[" + String.Join(", ", currentArray) + "]\n");
+                Console.WriteLine("\n\t[\"" + String.Join("\", \"", currentArray) + "\"]\n");
             else
             {
                 Console.WriteLine(
                     "\n\tВы не ввели ни одной строки!"
-                        + "\n\tС пустым массивом невозможно провести требуемой операции!"
+                        + "\n\tС пустым массивом невозможно провести требуемой операции!\n"
                 );
             }
         }
